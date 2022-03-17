@@ -35,11 +35,6 @@ img{
     max-width: 100%;
 }
 
-img:hover{
-    border: solid 2px red;
-    animation-delay: 1s;
-}
-
 .menu{
     display: flex;
 }
@@ -69,3 +64,40 @@ img:hover{
 
 /* GRID */
 
+.grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 800px;
+    padding: 10px;
+    margin: 0 auto;
+    gap: 20px;    
+}
+
+.grid > div:nth-child(n+4){
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    align-items: center;
+}
+
+.grid > div.anuncio{
+    grid-column: 1;
+    grid-row: 2/5;
+    display: block;
+    margin: auto;
+    border: solid 1px red;
+}
+
+@media (max-width: 600px){
+    .grid{
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .grid > div:nth-child(n+4){
+        display: block;
+    }
+    .grid > div.anuncio{
+        grid-column: auto;
+        grid-row: auto;
+        order: -1
+    }
+}
